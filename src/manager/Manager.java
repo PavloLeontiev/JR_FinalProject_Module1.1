@@ -1,13 +1,13 @@
 package manager;
 
-public class Manager {
-    InputDataManager inputDataManager;
+import algorithms.Algorithm;
 
-    public Manager(){
-        inputDataManager = new InputDataManager();
-    }
+public class Manager {
+    InputDataManager inputDataManager = new InputDataManager();
+    AlgorithmManager algorithmManager = new AlgorithmManager();
     public void run(String[] args){
         String[] inputData = inputDataManager.getInputData(args);
+        Algorithm algorithm = algorithmManager.initializeAlgorithm(inputData);
 
     }
 }
