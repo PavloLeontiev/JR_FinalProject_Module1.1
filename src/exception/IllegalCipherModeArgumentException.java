@@ -1,4 +1,4 @@
-package exceptions;
+package exception;
 
 public class IllegalCipherModeArgumentException extends RuntimeException{
     public IllegalCipherModeArgumentException(String cipherMode){

@@ -1,6 +1,6 @@
 package manager;
 
-import algorithms.Algorithm;
+import algorithm.Algorithm;
 
 public class Manager {
     InputDataManager inputDataManager = new InputDataManager();

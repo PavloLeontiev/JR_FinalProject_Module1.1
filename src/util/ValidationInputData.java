@@ -1,7 +1,7 @@
 package util;
 
-import exceptions.*;
-import modes.CipherMode;
+import exception.*;
+import mode.CipherMode;
 import java.io.File;
 
 public class ValidationInputData {
@@ -15,7 +15,7 @@ public class ValidationInputData {
     }
     public static String validateFilePath(String filePath){
         if(!new File(filePath).exists()){
-           throw new FileAlreadyExistsException(filePath);
+           throw new FileNotFoundException(filePath);
         }
         return filePath;
     }

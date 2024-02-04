@@ -1,10 +1,10 @@
-package alphabets;
+package alphabet;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Ukrainian {
-    private final ArrayList<Character> UKRAINIAN_ALPHABET = new ArrayList<>(Arrays.asList(
+public class UkrainianAlphabet {
+    public static final ArrayList<Character> ALPHABET = new ArrayList<>(Arrays.asList(
             'А', 'Б', 'В', 'Г', 'Ґ', 'Д', 'Е', 'Є', 'Ж', 'З', 'И', 'І', 'Ї', 'Й',
             'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч',
             'Ш', 'Щ', 'Ь', 'Ю', 'Я',

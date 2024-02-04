@@ -12,7 +12,7 @@ public class CLIInputData extends InputData{
                 Welcome to the text encryption program!             
                 Choose the mode: ENCRYPT / DECRYPT / BRUTE_FORCE 
                 """);
-        return ValidationInputData.validateCipherMode(scanner.next().trim());
+        return ValidationInputData.validateCipherMode(scanner.next().toUpperCase().trim());
     }
 
     public String getFilePath() {

@@ -1,4 +1,4 @@
-package modes;
+package mode;
 
 public enum CipherMode {
     ENCRYPT,

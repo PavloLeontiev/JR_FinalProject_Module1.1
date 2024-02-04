@@ -1,4 +1,4 @@
-package algorithms;
+package algorithm;
 
 import java.io.BufferedWriter;
 
