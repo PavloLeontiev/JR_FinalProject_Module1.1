@@ -7,7 +7,7 @@ public class ConsoleInputData extends InputData{
     private final String FILEPATH_ARGUMENT;
     private final String KEY_ARGUMENT;
     public ConsoleInputData(String[] inputData){
-        CIPHER_MODE_ARGUMENT = inputData[0].toUpperCase();
+        CIPHER_MODE_ARGUMENT = inputData[0];
         FILEPATH_ARGUMENT = inputData[1];
         KEY_ARGUMENT = inputData[2];
     }

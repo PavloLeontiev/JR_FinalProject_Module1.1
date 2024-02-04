@@ -10,7 +10,7 @@ public class VigenereCipher extends Algorithm{
         this.alphabet = alphabet;
         this.key = key;
     }
-    public BufferedWriter encrypt() {
+    public char[] encrypt(char[] array, int bytesRead) {
         return null;
     }
 }

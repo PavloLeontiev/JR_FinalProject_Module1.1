@@ -20,9 +20,12 @@ public class ValidationInputData {
         return filePath;
     }
     public static String validateKey(String key) {
-        if (!key.matches("^[0-9]*$") || !key.matches("^[a-zA-Zа-яА-ЯІіЇїЄєҐґ]*$")) {
+        if (key.matches("^[0-9]*$")) {
+            return key;
+        } else if (key.matches("^[a-zA-Zа-яА-ЯІіЇїЄєҐґ]*$")){
+            return key;
+        } else {
             throw new IllegalKeyArgumentException();
         }
-        return key;
     }
 }
