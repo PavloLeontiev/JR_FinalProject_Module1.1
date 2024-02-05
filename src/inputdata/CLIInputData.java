@@ -8,10 +8,12 @@ import util.ValidationInputData;
 import java.util.Scanner;
 
 public class CLIInputData extends InputData {
+    private String cipherMode;
+    private String filePath;
+    private String key;
     Scanner scanner = new Scanner(System.in);
 
     public String getCipherMode() {
-        String cipherMode = "";
         try {
             System.out.println("""           
                 Choose the mode: ENCRYPT / DECRYPT / BRUTE_FORCE 
@@ -25,7 +27,6 @@ public class CLIInputData extends InputData {
     }
 
     public String getFilePath() {
-        String filePath = "";
         System.out.println("""          
                 Please enter the path to the file:
                                 
@@ -36,29 +37,28 @@ public class CLIInputData extends InputData {
             filePath = ValidationInputData.validateFilePath(scanner.next());
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
-            filePath = ValidationInputData.validateFilePath(scanner.next());
+            getFilePath();
         }
         return filePath;
     }
 
     public String getKey(boolean isBruteForce) {
-        String key = "";
-        System.out.println("""                
-                    Please enter your key:
-                     № | Encryption method       | Possible key
-                    1) | CaesarCipher            | 0-∞
-                    2) | VigenereCipher          | Any word(without numbers and symbols)
-                       |                         | the key must be in the same language as the content of the file
-                    3) | Brute force             | Just press ENTER (without argument)
+        if (!isBruteForce) {
+            System.out.println("""                
+                        Please enter your key:
+                         № | Encryption method       | Possible key
+                        1) | CaesarCipher            | 0-∞
+                        2) | VigenereCipher          | Any word(without numbers and symbols)
+                           |                         | the key must be in the same language as the content of the file
+                        3) | Brute force             | Just press ENTER (without argument)
 
-                """);
-        try {
-            if (!isBruteForce) {
+                    """);
+            try {
                 key = ValidationInputData.validateKey(scanner.next());
+            } catch (IllegalKeyArgumentException e) {
+                System.out.println("The key must consist of only numbers or only symbols");
+                getKey(isBruteForce);
             }
-        } catch (IllegalKeyArgumentException e) {
-            System.out.println("The key must consist of only numbers or only symbols");
-            getKey(isBruteForce);
         }
         return key;
     }

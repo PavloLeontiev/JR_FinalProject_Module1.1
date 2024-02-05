@@ -3,8 +3,8 @@ package alphabet;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class UkrainianAlphabet {
-    public static final ArrayList<Character> ALPHABET = new ArrayList<>(Arrays.asList(
+public class UkrainianAlphabet extends Alphabet {
+    public final ArrayList<Character> ARRAY_LIST = new ArrayList<>(Arrays.asList(
             'А', 'Б', 'В', 'Г', 'Ґ', 'Д', 'Е', 'Є', 'Ж', 'З', 'И', 'І', 'Ї', 'Й',
             'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч',
             'Ш', 'Щ', 'Ь', 'Ю', 'Я',
@@ -12,4 +12,28 @@ public class UkrainianAlphabet {
             'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч',
             'ш', 'щ', 'ь', 'ю', 'я'
     ));
+
+    public final ArrayList<String> FREQUENTLY_USED_WORDS = new ArrayList<>(Arrays.asList(
+            "не", "на", "що", "вони", "ви", "ми", "він",
+            "так", "але", "все", "від", "коли", "як", "вже", "до",
+            "від", "щоб", "за", "то", "якщо", "його", "також",
+            "тут", "або", "по", "ні", "зі", "був", "це", "там",
+            "дуже", "тільки", "мені", "вона", "привіт", "ти", "це",
+            "де", "чому", "так", "може", "завжди", "ніколи",
+            "добре", "погано", "багато", "мало", "великий", "малий",
+            "дуже", "тільки", "спасибі", "будь ласка", "просто",
+            "зрозуміти", "робити", "хочу", "потрібно", "можливо",
+            "сьогодні", "завтра", "вчора", "ранок", "день", "вечір",
+            "ніч", "робота", "навчання", "життя", "любити", "ненавидіти",
+            "сім'я", "друзі", "гроші", "час", "інтересно", "красиво",
+            "щасливий", "сумний", "здоров'я"
+    ));
+
+    public ArrayList<Character> getARRAY_LIST() {
+        return ARRAY_LIST;
+    }
+
+    public ArrayList<String> getFREQUENTLY_USED_WORDS() {
+        return FREQUENTLY_USED_WORDS;
+    }
 }

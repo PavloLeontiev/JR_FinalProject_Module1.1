@@ -25,14 +25,13 @@ public class FileEncryptManager {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePathRead));
              BufferedWriter writer = new BufferedWriter(new FileWriter(filePathWrite))) {
             char[] array = new char[bufferCapacity];
-            int bytesRead = -1;
-            do{
-                bytesRead = reader.read(array);
-                array = algorithm.encrypt(array, bytesRead);
-                writer.write(array, 0, bytesRead);
+            int charsRead = reader.read(array);
+            while(charsRead != -1) {
+                array = algorithm.encrypt(array, charsRead);
+                writer.write(array, 0, charsRead);
                 writer.flush();
-                bytesRead = reader.read(array);
-            } while (bytesRead != -1);
+                charsRead = reader.read(array);
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

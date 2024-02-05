@@ -5,10 +5,12 @@ import java.util.HashMap;
 
 public class CaesarCipher extends Algorithm {
     private HashMap<Character, Character> encryptAlphabet = new HashMap<>();
+    private ArrayList<Character> alphabetArray;
 
     public CaesarCipher(int key, ArrayList<Character> alphabet) {
-        for (int i = 0; i < alphabet.size(); i++) {
-            encryptAlphabet.put(alphabet.get(i), alphabet.get((i + key) % alphabet.size()));
+        this.alphabetArray = alphabet;
+        for (int i = 0; i < alphabetArray.size(); i++) {
+            encryptAlphabet.put(alphabetArray.get(i), alphabetArray.get((i + key) % alphabetArray.size()));
         }
     }
 

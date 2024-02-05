@@ -1,5 +1,6 @@
 package util;
 
+import alphabet.Alphabet;
 import alphabet.EnglishAlphabet;
 import alphabet.UkrainianAlphabet;
 
@@ -10,12 +11,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DefineLanguageInFileContent {
-    private static ArrayList<Character> english = EnglishAlphabet.ALPHABET;
-    private static ArrayList<Character> ukrainian = UkrainianAlphabet.ALPHABET;
+    private static ArrayList<Character> english = new EnglishAlphabet().getARRAY_LIST();
+    private static ArrayList<Character> ukrainian = new UkrainianAlphabet().getARRAY_LIST();
     private static int englishCoincidences;
     private static int ukrainianCoincidences;
     private static int bufferCapacity = 1024;
-    public static ArrayList<Character> detectLanguage(String filePath) {
+    public static Alphabet defineLanguage(String filePath) {
         try(BufferedReader reader = new BufferedReader(new FileReader(filePath));) {
             char[] charArray = new char[bufferCapacity];
             reader.read(charArray);
@@ -26,7 +27,7 @@ public class DefineLanguageInFileContent {
                     ukrainianCoincidences++;
                 }
             }
-            return englishCoincidences > ukrainianCoincidences ? english : ukrainian;
+            return englishCoincidences > ukrainianCoincidences ? new EnglishAlphabet() : new UkrainianAlphabet();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {

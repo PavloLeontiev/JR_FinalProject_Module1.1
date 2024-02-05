@@ -19,7 +19,7 @@ public class InputDataManager {
         }
         data[CIPHER_MODE_ARGUMENT] = inputData.getCipherMode();
         data[FILE_PATH_ARGUMENT] = inputData.getFilePath();
-        data[KEY_ARGUMENT] = inputData.getKey(CipherMode.BRUTE_FORCE.toString().equals(data[CIPHER_MODE_ARGUMENT].trim()));
+        data[KEY_ARGUMENT] = inputData.getKey(CipherMode.BRUTE_FORCE.toString().equals(data[CIPHER_MODE_ARGUMENT]));
         return data;
     }
 }
